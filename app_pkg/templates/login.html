@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Sign In</h1>
+    <!-- Note thsat is action set to "" (blank) then URL in in address bar is used -->
+    <form action="" method="post">
+      {{ form.hidden_tag()}}
+      <!-- note that this protects from CSRF attack, need SECRET_KEY set though -->
+      <p>
+        {{form.username.label}}<br>
+        {{form.username(size=32)}}<br>
+        {% for error in form.username.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{form.password.label}}<br>
+        {{form.password(size=32)}}<br>
+        {% for error in form.password.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>{{form.remember_me()}} {{form.remember_me.label}}</p>
+      <p>{{form.submit()}}</p>
+    </form>
+{% endblock %}
