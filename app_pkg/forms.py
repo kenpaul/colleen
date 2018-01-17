@@ -1,3 +1,4 @@
+# flask_wtf is the Flask extension to use WTForms
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired

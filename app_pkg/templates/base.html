@@ -1,5 +1,8 @@
 
 <!-- base.html handles basic page structure -->
+<!-- Note that the jinja2 template engine will replace -->
+<!-- the curly brace blocks with corresponding values passed -->
+<!-- put stuff you want on every page in here -->
 
 <html>
     <head>
@@ -17,6 +20,7 @@
           <a href="/login">Login</a>
         </div>
         <hr>
+        <!-- if you've got cached flash messages process them, they then flush -->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         <ul>
@@ -26,6 +30,9 @@
         </ul>
         {% endif %}
         {% endwith %}
+        <!-- this next line is a place holder where derived templates -->
+        <!-- insert themselves. Note that blocks are given unqique names -->
+        <!-- like "content" so that derived templates can reference them -->
         {% block content %}{% endblock %}
     </body>
 </html>
